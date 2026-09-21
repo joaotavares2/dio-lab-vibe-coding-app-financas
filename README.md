@@ -73,13 +73,59 @@ Durante essa etapa, você pode orientar a IA para três entregas principais:
 Finalize seu projeto criando um **repositório no GitHub** (pode ser um **fork** deste).  
 No README do seu repositório, inclua:
 
-- Seu **prompt final** (PRD);  
-- Prints ou pequenos vídeos das interações com a IA;  
-- Um resumo do que o seu **App de Finanças Pessoais** faz;  
+- Seu **prompt final** (PRD):
+
+```txt
+  Crie um aplicativo web moderno de Finanças Pessoais com Inteligência Artificial chamado "FinanceAI". O app deve ser responsivo (mobile-first), com uma interface limpa, intuitiva e elegante (usando tema escuro/claro opcional, mas com visual estilo fintech moderna, tipo Nubank ou Revolut, usando cores como verde esmeralda e tons escuros).
+
+O aplicativo deve conter as seguintes telas e funcionalidades interativas:
+
+1. Dashboard Principal (Visão Geral):
+- Cards no topo mostrando: Saldo Total, Receitas do Mês, Despesas do Mês e Economia/Investimentos.
+- Gráfico interativo simulando a evolução mensal do saldo ou gastos por categoria.
+- Atalhos rápidos para "Adicionar Transação" e "Falar com a IA".
+
+2. Gestão de Transações:
+- Uma lista de transações recentes (com ícones para categorias como Alimentação, Transporte, Lazer, Salário, Moradia).
+- Um modal/formulário funcional para adicionar nova receita ou despesa (informando valor, descrição, data e categoria).
+
+3. Assistente Financeiro com IA (Chat Inteligente):
+- Uma aba ou modal dedicada onde o usuário pode conversar com uma IA simulada sobre suas finanças.
+- A IA deve dar dicas de economia com base nos gastos fictícios da tela, responder perguntas como "Onde gastei mais este mês?" e sugerir metas de economia.
+
+4. Metas Financeiras:
+- Seção para visualizar metas de economia (ex: "Viagem de Férias", "Reserva de Emergência") com barras de progresso visuais e botão para adicionar fundos.
+
+Requisitos técnicos e de UX:
+- Utilize componentes modernos de UI (estilo Tailwind CSS / Shadcn UI).
+- Navegação fluida entre as abas (Dashboard, Transações, Assistente IA, Metas).
+- O app deve vir preenchido com dados mockados (exemplos realistas de gastos e receitas) para que a interface não nasça vazia e o usuário consiga interagir imediatamente.
+```
+- Prints ou pequenos vídeos das interações com a IA:
+  <img width="1896" height="900" alt="image" src="https://github.com/user-attachments/assets/a4e86f30-459b-4830-9d5d-01876e236e44" />
+ 
+- Um resumo do que o seu **App de Finanças Pessoais** faz:
+  App focado em controle geral de finanças de uma pessoa, mostrando diversos dashboards para controle e otimização. Mais, auxílio de ia para manejo de dados e exibição.
+  
 - Uma breve **reflexão sobre o processo**:
-  - O que funcionou bem?  
-  - O que não funcionou como o esperado?  
-  - O que aprendeu sobre conversar com IAs?
+**O que funcionou bem?**
+Aceleração da Prototipagem Visual: A IA traduziu com precisão as diretrizes de UX/UI solicitadas no PRD. A combinação de tema escuro com verde-esmeralda, aliada aos componentes de estilo moderno (Tailwind/Shadcn), gerou uma interface com aspecto profissional de fintech já no primeiro ciclo.
+
+Preenchimento Inicial com Dados Mockados: Solicitar dados fictícios realistas logo no prompt de inicialização evitou o problema da "tela em branco", permitindo validar imediatamente a legibilidade dos gráficos, o comportamento dos cards de métricas e a disposição da lista de transações.
+
+Layout Responsivo (Mobile-First): A estrutura de navegação entre as abas e o comportamento fluido dos modais funcionaram de forma consistente tanto em telas menores quanto no desktop, dispensando ajustes manuais exaustivos de CSS.
+
+**O que não funcionou como o esperado?**
+Sincronização de Estado Reativo: Ao cadastrar uma nova despesa ou adicionar fundos a uma meta via modal, a atualização automática e dinâmica dos cards de Saldo Total exigiu refinamento. A IA inicialmente tratava alguns componentes de forma isolada, demandando prompts de ajuste para conectar o estado global da aplicação.
+
+Profundidade das Respostas do Chat: Como o assistente simulado operava sem um backend integrado diretamente à API de uma LLM em tempo real, as primeiras interações geravam respostas genéricas. Foi necessário iterar comandos para que a simulação lesse o array de dados mockados e respondesse com números específicos dos gastos exibidos na tela.
+
+**O que aprendi sobre conversar com IAs?**
+Especificidade é mais eficiente que adjetivos: Em vez de pedir apenas um "app bonito e moderno", definir parâmetros técnicos concretos (estilo de componentes, paleta de cores esmeralda/dark, mobile-first e divisões de tela) reduz ruídos e elimina retrabalho de design.
+
+O papel do desenvolvedor evoluiu para Product Manager/Tech Lead: No modelo de Vibe Coding, o foco principal deixa de ser a digitação manual de código repetitivo (boilerplate) e passa a ser a clareza na especificação funcional (PRD), a decomposição de problemas em etapas lógicas e a validação crítica do que foi gerado.
+
+Iteração incremental supera prompts gigantescos: É mais seguro e previsível gerar a estrutura base do layout com dados estáticos primeiro e, em seguida, conduzir a IA através de instruções pontuais para refinar interatividades, cálculos e comportamentos de formulários.
 
 > [!TIP]
 > Publique seu repositório e compartilhe o link na plataforma da DIO! Sua entrega é a prova de que você domina o raciocínio de Vibe Coding, mesmo sem escrever uma única linha de código.
